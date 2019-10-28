@@ -1,0 +1,65 @@
+{
+  "id": "1480713",
+  "name": "cloudMusic",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "599914",
+      "name": "QQ",
+      "font_class": "qq",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "693214",
+      "name": "返回",
+      "font_class": "flow",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "700855",
+      "name": "微博",
+      "font_class": "weibo",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "700862",
+      "name": "qq",
+      "font_class": "qq1",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "834840",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "986226",
+      "name": "微信",
+      "font_class": "weixin-copy",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "1274273",
+      "name": "微信",
+      "font_class": "weixin1",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "7239850",
+      "name": "qq",
+      "font_class": "qq2",
+      "unicode": "e746",
+      "unicode_decimal": 59206
+    }
+  ]
+}
