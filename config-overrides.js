@@ -18,10 +18,9 @@ module.exports = override(
         ["@"]: path.resolve(__dirname, "src"),        
         ["pages"]: path.resolve(__dirname, "src/pages"),               
         ["components"]: path.resolve(__dirname, "src/components")   
+    }),
+    fixBabelImports('import', { // antd 按需加载
+        libraryName: 'antd-mobile',
+        style: 'css'
     })
-    // fixBabelImports('import', { // antd 按需加载
-    //     libraryName: 'antd',
-    //     libraryDirectory: 'es',
-    //     style: 'css'
-    // })
 )

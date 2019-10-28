@@ -7,7 +7,9 @@ import { AppContainer }  from "react-hot-loader" // 热加载局部更新
 import {Provider} from 'react-redux';  // redux
 import store from "./store/index" // 设置 store
 import './style/base.css'; // 全局样式
+import 'antd-mobile/dist/antd-mobile.css';
 import "./config/index"
+import "@/iconfont/iconfont.css"
 fastclick.attach(document.body); 
 
 const render = Component => {
