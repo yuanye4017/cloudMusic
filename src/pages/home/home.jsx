@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import mixin, { padStr } from '@/utils/mixin';
 import { connect } from "react-redux"
 import { is, fromJS } from 'immutable';
-import axios from "@/api/api"
 @mixin({padStr})
 class Home extends Component {
     constructor(props) {
@@ -12,9 +11,7 @@ class Home extends Component {
         }
     }
     componentWillMount(){
-        axios.getStatus().then((v) => {
-            console.log(v)
-        })
+    
     }
     shouldComponentUpdate(nextProps, nextState) {
         return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
@@ -33,6 +30,6 @@ function mapStateToProps(state) { // 将state映射到props
     }
 }
 function mapDispatchToProps(dispatch) {
-
+    return ""
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home)

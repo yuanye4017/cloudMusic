@@ -1,14 +1,8 @@
-import Server from './server';
+import { apiAxios } from "./server";
 
-class Axios extends Server{
-  async getStatus() { 
-    try {
-      let result = await this.axios('get', '/login/status'); 
-      return result
-    }catch(error) {
-      console.log(error)
-    }
-  }
+export const BASE_URL = 'api'
+
+export function getCaptcha(phone) {
+    let url = `${BASE_URL}/captcha/sent?phone=${phone}`;
+    return apiAxios("GET", url)
 }
-
-export default new Axios();

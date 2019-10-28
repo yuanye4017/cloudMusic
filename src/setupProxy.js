@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.use(
     proxy('/api', {
     // http://localhost:8080/ 地址只是示例，实际地址以项目为准
-      target: 'http://localhost:8080/',
+      target: 'http://101.132.78.25:3000/',
       // 跨域时一般都设置该值 为 true
       changeOrigin: true,
       // 重写接口路由
