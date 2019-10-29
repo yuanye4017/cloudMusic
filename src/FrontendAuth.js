@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { Route,Redirect } from 'react-router-dom';
- 
+import asyncComponent from '@/utils/asyncComponent'; // 异步加载组件
+
 export class FrontendAuth extends React.Component{
     render(){
+        const Home = asyncComponent(() => import("@/pages/home/home"));
         const { location,config } = this.props;
         const { pathname } = location;
         const isLogin = localStorage.getItem('__config_center_token')
-         
+
         // 如果该路由不用进行权限校验，登录状态下登陆页除外
         // 因为登陆后，无法跳转到登陆页
         // 这部分代码，是为了在非登陆状态下，访问不需要权限校验的路由
@@ -23,7 +25,11 @@ export class FrontendAuth extends React.Component{
             }else{
                 // 如果路由合法，就跳转到相应的路由
                 if(targetRouterConfig){
-                    return <Route path={pathname} component={targetRouterConfig.component} />
+                    return (
+                        <Home path="/" component={Home}>
+                            <Route path={pathname} component={targetRouterConfig.component} />
+                        </Home>
+                    ) 
                 }else{
                     // 如果路由不合法，重定向到 404 页面
                     return <Redirect to='/404' />
