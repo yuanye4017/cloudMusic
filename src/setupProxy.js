@@ -4,7 +4,6 @@ module.exports = function(app) {
   // target 表示目标服务器的地址
   app.use(
     proxy('/api', {
-    // http://localhost:8080/ 地址只是示例，实际地址以项目为准
       target: 'http://101.132.78.25:3000/',
       // 跨域时一般都设置该值 为 true
       changeOrigin: true,
