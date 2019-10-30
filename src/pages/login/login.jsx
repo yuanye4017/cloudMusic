@@ -16,8 +16,8 @@ class Login extends Component {
         this.state = {
             isAggree : [],
             isToggleOn : true,
-            isSendOut : true,
-            phone : '15321567132',
+            isSendOut : false,
+            phone : '',
             loadingTime : 100,
             timer : 60,
             phoneCode : ['','','','']
