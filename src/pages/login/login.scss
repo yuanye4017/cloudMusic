@@ -60,17 +60,6 @@
         }
     }
 }
-.login-button{
-    height: 0.8rem;
-    font-size: 0.32rem;
-    border-radius: 0.4rem;
-    line-height: 0.8rem;
-    color: #ffffff;
-    background: #db2d22;
-}
-.login-button::before {
-    border-radius: 1rem !important;
-}
 .login-phone {
     padding: 0 0.3rem;
     h2 {
@@ -105,6 +94,45 @@
         font-size: 0.32rem;
     }
 }
+.login-button{
+    height: 0.8rem;
+    font-size: 0.32rem;
+    border-radius: 0.4rem;
+    line-height: 0.8rem;
+    color: #ffffff;
+    background: #db2d22;
+}
+.login-button::before {
+    border-radius: 1rem !important;
+}
+.verification-code {
+    p:nth-child(1) {
+        font-size: 0.3rem;
+        line-height: 0.64rem;
+        margin-top: 0.74rem;
+    }
+    p:nth-child(2), p:nth-child(3){
+        font-size: 0.2rem;
+        line-height: 0.52rem;
+        color: #8b8b8b;
+    }
+}
+.verification-code-input {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    .code {
+        border-bottom: solid 0.05rem #eeeeee;
+        width: 20%;
+        height: 0.54rem;
+        box-sizing: border-box;
+        input {
+            text-align: center;
+        }
+    }
+}
+
+// 提示框
 .am-toast-notice-content .am-toast-text {
     background: #ffffff;
     border-radius: 0.1rem;

@@ -54,19 +54,6 @@ li{
 html,body{
   height: 100%;
 }
-.common-con-top{
-  margin-top: 88px;
-}
-
-.ellipsis{
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap
-}
-
-html,body {
-  height: 100%;
-}
 #root {
   height: 100%;
 }
