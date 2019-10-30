@@ -12,7 +12,7 @@ class Login extends Component {
         super(props)
         this.state = {
             isAggree : [],
-            isToggleOn : false,
+            isToggleOn : true,
             phone : ''
         }
     }
@@ -71,8 +71,8 @@ class Login extends Component {
                     </div>
                     <div className="login-bottom">
                         <div>
-                            <Button className="login-button" onClick={this.login}>手机号登陆</Button>
-                            <Button className="login-button">立即体验</Button>
+                            <Button className="login-button scale-1px" onClick={this.login}>手机号登陆</Button>
+                            <Button className="login-button scale-1px">立即体验</Button>
                         </div>
                         <div className="login-icon-wrap">
                             <span className="login-icon iconfont icon-weixin"></span>
@@ -83,7 +83,7 @@ class Login extends Component {
                         <div className="login-agree">
                             <input type="checkbox" id="myCheck" style={{"display":"none"}} onChange={this.handelChange} value="off"/>
                             <label htmlFor="myCheck"></label>
-                            <p>同意 <a >《用户隐私》</a><a>《隐私政策》</a><a>《儿童隐私政策》</a></p>
+                            <p>同意 <span>《用户隐私》</span><span>《隐私政策》</span><span>《儿童隐私政策》</span></p>
                         </div>
                     </div>
                 </div>

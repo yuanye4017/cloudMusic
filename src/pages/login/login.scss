@@ -63,12 +63,13 @@
 .login-button{
     height: 0.8rem;
     font-size: 0.32rem;
-    border-radius: 40px;
+    border-radius: 0.4rem;
     line-height: 0.8rem;
     color: #ffffff;
     background: #db2d22;
-    border: solid 2px #fc5949 !important
-    
+}
+.login-button::before {
+    border-radius: 1rem !important;
 }
 .login-phone {
     padding: 0 0.3rem;
