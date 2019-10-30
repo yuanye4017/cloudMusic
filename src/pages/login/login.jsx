@@ -15,7 +15,7 @@ class Login extends Component {
         super(props)
         this.state = {
             isAggree : [],
-            isToggleOn : true,
+            isToggleOn : true, 
             isSendOut : false,
             phone : '',
             loadingTime : 100,
@@ -37,7 +37,7 @@ class Login extends Component {
                 [e.target.name] : value
             })  
         }
-    };
+    }
     handelChangeCode = (value,num) => {
         var phoneCode = this.state.phoneCode;  
         phoneCode[num] = value;  
@@ -54,34 +54,13 @@ class Login extends Component {
             case "2" : this.inputRefFour.focus();break;
             case "3" : this.verification();break;
         }  
-    }
-    verification() { // 校检验证码
-        var phone = this.state.phone;
-        phone = phone.replace(/\s+/g,""); 
-        var captcha = this.state.phoneCode.join("");
-        verification(phone,captcha).then((data) => {
-            if(data.code === 200) {
-                localStorage.__config_center_token = this.setState.phone;
-                history.push('/');
-            }
-        })
-    }
+    }  
     handelChangeVal = value => {
         this.setState({
             phone : value
         }) 
     }
-    login = e => { 
-        var isAggree = this.state.isAggree;
-        if(isAggree.length > 0) {
-            this.setState({
-                isToggleOn : !this.state.isToggleOn
-            })
-        }else {
-            Toast.info('请勾选同意 《用户隐私》《隐私政策》《儿童隐私政策》', 1);
-        }
-    }
-    goBack(type){
+    goBack(type){ // 返回上一页
         if(type === '1') {
             this.setState({
                 isToggleOn : !this.state.isToggleOn
@@ -92,8 +71,18 @@ class Login extends Component {
             })
         }   
     }
-    register = () => {  
-        const phone = this.state.phone
+    login = e => { // 手机号登陆
+        var isAggree = this.state.isAggree;
+        if(isAggree.length > 0) {
+            this.setState({
+                isToggleOn : !this.state.isToggleOn
+            })
+        }else {
+            Toast.info('请勾选同意 《用户隐私》《隐私政策》《儿童隐私政策》', 1);
+        }
+    }  
+    register = () => {  // 登陆
+        let phone = this.state.phone
         phone = phone.replace(/\s+/g,"");       
         if(phone.length < 11) {
             Toast.info('请输入11位手机号码', 1);
@@ -110,6 +99,17 @@ class Login extends Component {
                 }
             })
         }
+    }
+    verification() { // 校检验证码
+        var phone = this.state.phone;
+        phone = phone.replace(/\s+/g,""); 
+        var captcha = this.state.phoneCode.join("");
+        verification(phone,captcha).then((data) => {
+            if(data.code === 200) {
+                localStorage.__config_center_token = this.state.phone;
+                history.push('/');
+            }
+        })
     }
     render() {
         const isToggleOn = this.state.isToggleOn;
