@@ -38,6 +38,7 @@
     "history": "^4.10.1",
     "http-proxy-middleware": "^0.20.0",
     "immutable": "^4.0.0-rc.12",
+    "js-cookie": "^2.2.1",
     "node-sass": "^4.13.0",
     "rc-form": "^2.4.9",
     "react-app-rewired": "^2.1.4",

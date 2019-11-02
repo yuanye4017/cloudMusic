@@ -11,3 +11,8 @@ export function verification(phone,code) {
     let url = `${BASE_URL}/captcha/sent?phone=${phone}&captcha=${code}`;
     return apiAxios("GET", url)
 }
+
+export function checkPhone(phone) {
+    let url = `${BASE_URL}/cellphone/existence/check?phone=${phone}`;
+    return apiAxios("GET", url)
+}

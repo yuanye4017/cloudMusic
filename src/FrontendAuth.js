@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Route,Redirect } from 'react-router-dom';
+import Cookies from 'js-cookie'
 import asyncComponent from '@/utils/asyncComponent'; // 异步加载组件
 
 export class FrontendAuth extends React.Component{
@@ -7,7 +8,7 @@ export class FrontendAuth extends React.Component{
         const Home = asyncComponent(() => import("@/pages/home/home"));
         const { location,config } = this.props;
         const { pathname } = location;
-        const isLogin = localStorage.getItem('__config_center_token')
+        const isLogin = Cookies.get('MUSIC_U')
 
         // 如果该路由不用进行权限校验，登录状态下登陆页除外
         // 因为登陆后，无法跳转到登陆页
