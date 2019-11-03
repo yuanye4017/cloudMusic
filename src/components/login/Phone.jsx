@@ -1,7 +1,7 @@
 import React from "react"
 import { createForm } from 'rc-form';
 import { Button,InputItem,Toast } from 'antd-mobile';
-import { getCaptcha,checkPhone } from "@/api/api.js"
+import { checkPhone } from "@/api/api.js"
 const Phone = ({ userPhone,onClick,onChange,form }) => {
     const { getFieldProps } = form
     const goCaptcha = () => {
@@ -11,13 +11,14 @@ const Phone = ({ userPhone,onClick,onChange,form }) => {
             return false;
         }
         checkUserByPhone(newPserPhone).then((data) => {
-            console.log(data)
+            if(data.code === 200) {
+                if(data.hasPassword) {
+                    onClick("4")
+                }else {
+                    onClick("3")
+                }    
+            }
         })
-        // getCaptcha.then((data) => {
-        //     if(data.code === 200) {
-        //         onClick('3')
-        //     }
-        // })
     }
     const checkUserByPhone = (phone) => {
         return checkPhone(phone)

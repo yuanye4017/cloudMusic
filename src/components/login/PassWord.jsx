@@ -1,12 +1,21 @@
 import React ,{useState} from "react"
 import { createForm } from 'rc-form';
+import { createHashHistory } from 'history'; // hash路由
 import { Button,InputItem } from 'antd-mobile';
+import { checkPassWord } from "@/api/api.js"
+
+const history = createHashHistory();
 const PassWord = ({ userPhone, captcha, form }) => {
     const { getFieldProps } = form
-    const {password,setPassword} = useState('')
+    const [password,setPassword] = useState('')
 
     const confirmID = () => {
-        
+        var newPhone = userPhone.replace(/\s+/g, "");
+        checkPassWord(newPhone,password).then((data) => {
+            if(data.code === 200) {
+                history.push("/")
+            }
+        })
     }
     return (
         <>
@@ -15,6 +24,7 @@ const PassWord = ({ userPhone, captcha, form }) => {
                     {...getFieldProps('password')} 
                     type="password" 
                     name="password"
+                    maxLength={20}
                     value={password} 
                     placeholder="请输入密码" 
                     onChange={(v) => setPassword(v)} ></InputItem>

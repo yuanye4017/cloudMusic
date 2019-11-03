@@ -16,3 +16,7 @@ export function checkPhone(phone) {
     let url = `${BASE_URL}/cellphone/existence/check?phone=${phone}`;
     return apiAxios("GET", url)
 }
+export function checkPassWord(phone,pwd) {
+    let url = `${BASE_URL}/login/cellphone?phone=${phone}&password=${pwd}`;
+    return apiAxios("POST", url)
+}
