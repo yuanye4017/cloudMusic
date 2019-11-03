@@ -8,12 +8,11 @@ axios.interceptors.request.use((config) => {
     return config
 })
 axios.interceptors.response.use(function({data}) {
-    if(data.code === 200) {
-        return data
-    } 
+    return data
 },function(error) {
     let response = error.response;
     Toast.info(response.data.msg, 1);
+    return response.data
 })
 
 
