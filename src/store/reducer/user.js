@@ -5,12 +5,13 @@ export default {
         var newValue = JSON.parse(value)
         switch(action.type) {
             case "ADD_USER_PHONE" :
-                newValue.userPhone = action.payload.phone;
+                newValue.userPhone = action.payload.userPhone;
                 break;
             case "ADD_USER_CAPTCHA" :
-                newValue.captcha[action.payload.num] = action.payload.captcha;
+                newValue.captcha[action.payload.index] = action.payload.captcha;
                 break;
-
+            default : 
+                return newValue
         }
         return newValue
     }

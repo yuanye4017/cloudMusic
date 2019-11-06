@@ -1,16 +1,15 @@
 import React, { useState , useRef , useEffect } from "react"
-import { createForm } from 'rc-form';
+import { connect } from "react-redux"
 import { InputItem } from 'antd-mobile';
 import { verification } from "@/api/api.js"
 
-function Captcha({ userPhone , form , captcha , setCaptcha ,onClick}) {
-    const { getFieldProps } = form
+function Captcha({ userPhone, captcha ,changeCaptcha,handelChangeToggle,getFieldProps}) {
     const [timer,setTimer] = useState(5)
     const [disabledInput,setDisabledInput] = useState(0)
     const textInput = useRef()
     const onKeyup = (e,index) => {     
         if(e.keyCode === 8 && index/1 > 0) {
-            setCaptcha(index/1 - 1,'')
+            changeCaptcha(index/1 - 1,'')
             setDisabledInput(index/1 - 1)
         } 
     }
@@ -18,7 +17,7 @@ function Captcha({ userPhone , form , captcha , setCaptcha ,onClick}) {
         if (!val) {
             return false
         }
-        setCaptcha(index,val)
+        changeCaptcha(index,val)
         if(index/1 <= 2) {
             setDisabledInput(index/1 + 1)
         }else {
@@ -28,24 +27,30 @@ function Captcha({ userPhone , form , captcha , setCaptcha ,onClick}) {
     const goVerification = (captcha) => {
         var newUserPhone = userPhone.replace(/\s+/g, "");
         var newCaptcha = captcha.join("");
-        onClick('4')
         verification(newCaptcha, newUserPhone).then((data) => {
             if (data.code === 200) {
-                onClick('4')
+                handelChangeToggle('4')
             }
         })
     }
     useEffect(() => {
         if(disabledInput >= 0){
             textInput.current.childNodes[disabledInput].getElementsByTagName('input')[0].focus()
-        }
-        setTimeout(() => {
+        }    
+    },[disabledInput])
+    
+    useEffect(() => {
+        const tiemr = setTimeout(() => {
             setTimer(timer - 1);
             if(timer === 0) {
                 setTimer('炸了吧');
             }
         }, 1000);
-    },[disabledInput,timer])
+        return () => {
+          clearTimeout(tiemr); 
+        };
+    },[]);
+
     return (
         <>
             <div className="verification-code">
@@ -63,7 +68,7 @@ function Captcha({ userPhone , form , captcha , setCaptcha ,onClick}) {
                                     type="number"
                                     className="inputEl"
                                     disabled={disabledInput === index/1 ? false : true}
-                                    value={captcha[index]}
+                                    value={value}
                                     onKeyUp={e => onKeyup(e, index)}
                                     onChange={(val) => handelChange(val, index)} ></InputItem>
                             </div>
@@ -74,5 +79,23 @@ function Captcha({ userPhone , form , captcha , setCaptcha ,onClick}) {
         </>
     )
 }
-
-export default createForm()(Captcha)
+function mapStateToProps({user}) {
+    return {
+        userPhone : user.userPhone,
+        captcha : user.captcha
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        changeCaptcha(index,captcha) {
+            dispatch({
+                type : "ADD_USER_CAPTCHA",
+                payload : {
+                    index,
+                    captcha
+                }
+            })
+        } 
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)((Captcha))

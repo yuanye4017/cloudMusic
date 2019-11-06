@@ -1,21 +1,18 @@
-import React, { useState , useEffect} from "react"
+import React, { useState } from "react"
 import { createHashHistory } from 'history'; // hash路由
 import Cookies from 'js-cookie'
 import logo from '@/images/logo.png';
 import { Button, Toast } from 'antd-mobile';
 
 const history = createHashHistory();
-function Choice({onClick}) {
+function Choice({handelChangeToggle}) {
     const [aggree,setAggree] = useState(false)
     const handelChange = () => {
        setAggree(!aggree)
     }
-    useEffect(() => {
-        console.log(aggree)
-    },[aggree])
     const mobileLanding = () => {
         if(aggree) {
-            onClick('2')
+            handelChangeToggle('2')
         }else {
             Toast.info('请勾选同意 《用户隐私》《隐私政策》《儿童隐私政策》', 1);
         }

@@ -1,12 +1,9 @@
 import React ,{useState} from "react"
-import { createForm } from 'rc-form';
-import { createHashHistory } from 'history'; // hash路由
+import { connect } from "react-redux"
 import { Button,InputItem } from 'antd-mobile';
 import { checkPassWord } from "@/api/api.js"
 
-const history = createHashHistory();
-const PassWord = ({ userPhone, captcha, form }) => {
-    const { getFieldProps } = form
+const PassWord = ({ userPhone , history,getFieldProps }) => {
     const [password,setPassword] = useState('')
 
     const confirmID = () => {
@@ -35,5 +32,9 @@ const PassWord = ({ userPhone, captcha, form }) => {
         </>  
     )
 }
-
-export default createForm()(PassWord)
+function mapStateToProps({user}) {
+    return {
+        userPhone : user.userPhone,
+    }
+}
+export default connect(mapStateToProps)((PassWord))

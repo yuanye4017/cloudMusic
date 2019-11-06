@@ -1,27 +1,23 @@
 import React from "react"
-import { createForm } from 'rc-form';
+import { connect } from "react-redux"
 import { Button,InputItem,Toast } from 'antd-mobile';
 import { checkPhone } from "@/api/api.js"
-const Phone = ({ userPhone,onClick,onChange,form }) => {
-    const { getFieldProps } = form
+const Phone = ({ userPhone,handelChange,handelChangeToggle,getFieldProps }) => {
     const goCaptcha = () => {
         var newPserPhone = userPhone.replace(/\s+/g, "");
         if(newPserPhone.length !== 11) {
             Toast.info('请填写正确的号码', 1);
             return false;
         }
-        checkUserByPhone(newPserPhone).then((data) => {
+        checkPhone(newPserPhone).then((data) => {
             if(data.code === 200) {
                 if(data.hasPassword) {
-                    onClick("4")
+                    handelChangeToggle(5)
                 }else {
-                    onClick("3")
+                    handelChangeToggle(3)
                 }    
             }
         })
-    }
-    const checkUserByPhone = (phone) => {
-        return checkPhone(phone)
     }
     return (
         <>
@@ -35,7 +31,7 @@ const Phone = ({ userPhone,onClick,onChange,form }) => {
                     name="phone"
                     value={userPhone} 
                     placeholder="请输入手机号码" 
-                    onChange={(v) => onChange(v)} >+86</InputItem>
+                    onChange={(v) => handelChange(v)} >+86</InputItem>
             </div>
             <div>
                 <Button className="login-button" onClick={() => goCaptcha()}>下一步</Button>
@@ -43,5 +39,21 @@ const Phone = ({ userPhone,onClick,onChange,form }) => {
         </>  
     )
 }
-
-export default createForm()(Phone)
+function mapStateToProps({user}) {
+    return {
+        userPhone : user.userPhone
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        handelChange(userPhone) {
+            dispatch({
+                type : "ADD_USER_PHONE",
+                payload : {
+                    userPhone
+                }
+            })
+        } 
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)((Phone))
