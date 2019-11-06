@@ -6,10 +6,10 @@
         text-align: center;
         margin-top: 2.6rem;
         img{
-            width: 1.36rem;
-            height: 1.36rem;
+            width: 60%;
+            height: 30%;
         }
-    } 
+    }
 }
 .login-bottom {
     width: 100%;
@@ -23,11 +23,12 @@
     .login-icon-wrap {
         display: flex;
         justify-content: space-around;
-        .login-icon {
-            font-size: 0.64rem;
-            color: #ffffff;
-            height: 1.8rem;
-            line-height: 1.8rem;
+        padding: .58rem 0;
+        img {
+            height: .68rem;
+            width: .68rem;
+            border: 1px solid #ffffff;
+            border-radius: 50%;
         }
     }
     .login-agree {
@@ -52,8 +53,11 @@
         }
         p {
             display: inline-block;
-            color: #fc5949;
+            color: #e98079;;
             line-height: 0.22rem;
+            span {
+                color: #f8d6d3;
+            }
         }
         a {
             color: #ffffff;
@@ -94,16 +98,27 @@
         font-size: 0.32rem;
     }
 }
-.login-button{
+.login-button,.login-next{
     height: 0.8rem;
     font-size: 0.32rem;
     border-radius: 0.4rem;
     line-height: 0.8rem;
+    border: 0.01rem solid #ffffff!important;
+}
+.login-button:nth-child(1){
+    background: #ffffff;
+    color: #db2c1f;
+}
+.login-button:nth-child(2){
+    background: #db2c1f;
     color: #ffffff;
-    background: #db2d22;
 }
 .login-button::before {
     border-radius: 1rem !important;
+}
+.login-next{
+    background: #db2c1f;
+    color: #ffffff;
 }
 .verification-code {
     overflow: hidden;
@@ -138,5 +153,6 @@
     background: #ffffff;
     border-radius: 0.1rem;
     color: black;
+    font-size: .18rem;
     border: solid 1px #a7a7a7;
-}   
+}

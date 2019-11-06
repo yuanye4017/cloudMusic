@@ -15,7 +15,7 @@ const Phone = ({ userPhone,handelChange,handelChangeToggle,getFieldProps }) => {
                     handelChangeToggle(5)
                 }else {
                     handelChangeToggle(3)
-                }    
+                }
             }
         })
     }
@@ -25,18 +25,18 @@ const Phone = ({ userPhone,handelChange,handelChangeToggle,getFieldProps }) => {
                 未创建手机号登陆后将自动创建账号
             </div>
             <div className="login-phone-num">
-                <InputItem 
-                    {...getFieldProps('phone')} 
-                    type="phone" 
+                <InputItem
+                    {...getFieldProps('phone')}
+                    type="phone"
                     name="phone"
-                    value={userPhone} 
-                    placeholder="请输入手机号码" 
+                    value={userPhone}
+                    placeholder="请输入手机号码"
                     onChange={(v) => handelChange(v)} >+86</InputItem>
             </div>
             <div>
-                <Button className="login-button" onClick={() => goCaptcha()}>下一步</Button>
+                <Button className="login-next" onClick={() => goCaptcha()}>下一步</Button>
             </div>
-        </>  
+        </>
     )
 }
 function mapStateToProps({user}) {
@@ -53,7 +53,7 @@ function mapDispatchToProps(dispatch) {
                     userPhone
                 }
             })
-        } 
+        }
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)((Phone))

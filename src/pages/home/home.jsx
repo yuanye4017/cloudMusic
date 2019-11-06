@@ -23,7 +23,7 @@ function Home() {
                     className="iconfont icon-menu"></Badge>
             </div>
             <div className="header-list">
-                <Tabs tabs={tabs} 
+                <Tabs tabs={tabs}
                 initialPage={1}
                 onChange={(name,index) => handelChange(name,index)}
                 tabBarBackgroundColor="#fff"
@@ -37,7 +37,7 @@ function Home() {
                     </div>
                     <div>1</div>
                     <div>1</div>
-                </Tabs>  
+                </Tabs>
             </div>
             <div className="header-search"> 
                 <span className="iconfont icon-sousuo"></span>
