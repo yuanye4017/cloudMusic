@@ -19,7 +19,7 @@ function Login({form,history}) {
             setToggle(2)
         }else {
             setToggle(toggle -1)
-        } 
+        }
     }
 
     const { getFieldProps } = form
@@ -36,7 +36,7 @@ function Login({form,history}) {
         }
     },[toggle])
     return (
-        <div className="login-body-wrap" style={{ background: toggle === 1 ? '#de2e21' : '#fff' }}>
+        <div className="login-body-wrap" style={{ background: toggle === 1 ? '#db2c1f' : '#fff' }}>
             {toggle === 1 ? <Choice handelChangeToggle={handelChangeToggle} /> : null}
             <div className="login-phone" style={{ display: toggle === 1 ? 'none' : 'block' }}>
                 <h2 onClick={() => goBack()}><span className="iconfont icon-flow"></span>{title}</h2>

@@ -14,7 +14,7 @@ function Home() {
     return (
         <div className="home-wrap">
             <div className="header-list">
-                <Tabs tabs={tabs} 
+                <Tabs tabs={tabs}
                 initialPage={1}
                 onChange={(name,index) => handelChange(name,index)}
                 tabBarBackgroundColor="#fff"
@@ -24,7 +24,7 @@ function Home() {
                     <div>1</div>
                     <div>1</div>
                     <div>1</div>
-                </Tabs>  
+                </Tabs>
             </div>
         </div>
     )
