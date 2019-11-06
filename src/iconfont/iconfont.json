@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "287175",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
       "icon_id": "599914",
       "name": "QQ",
       "font_class": "qq",
@@ -60,6 +67,13 @@
       "font_class": "qq2",
       "unicode": "e746",
       "unicode_decimal": 59206
+    },
+    {
+      "icon_id": "9512624",
+      "name": "菜单",
+      "font_class": "menu",
+      "unicode": "e633",
+      "unicode_decimal": 58931
     }
   ]
 }
