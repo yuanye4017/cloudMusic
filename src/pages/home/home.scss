@@ -1,0 +1,13 @@
+.home-wrap {
+    height: 100%;
+    background: #ffffff;
+    padding: 0 0.3rem;
+    .header-list {
+        width: 100%; 
+        height: 100%;
+        padding-top: 0.3rem;
+        .am-tabs-default-bar-tab-active {
+            font-size: 0.34rem !important;
+        }
+    }
+}

@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { Route,Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie'
-import asyncComponent from '@/utils/asyncComponent'; // 异步加载组件
-
 export class FrontendAuth extends React.Component{
     render(){
-        const Home = asyncComponent(() => import("@/pages/home/home"));
         const { location,config } = this.props;
         const { pathname } = location;
         const isLogin = Cookies.get('MUSIC_U')
@@ -26,11 +23,7 @@ export class FrontendAuth extends React.Component{
             }else{
                 // 如果路由合法，就跳转到相应的路由
                 if(targetRouterConfig){
-                    return (
-                        <Home path="/" component={Home}>
-                            <Route path={pathname} component={targetRouterConfig.component} />
-                        </Home>
-                    ) 
+                    return <Route path={pathname} component={targetRouterConfig.component} />
                 }else{
                     // 如果路由不合法，重定向到 404 页面
                     return <Redirect to='/404' />

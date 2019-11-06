@@ -1,11 +1,11 @@
 import asyncComponent from '@/utils/asyncComponent'; // 异步加载组件
 
 const Login = asyncComponent(() => import("@/pages/login/login"));
-const Find = asyncComponent(() => import("@/pages/find/find"));
+const Home = asyncComponent(() => import("@/pages/home/home"));
 export const routerConfig = [
     {
         path:'/',
-        component:Find,
+        component:Home,
         auth:true,
     },{
         path:'/login',
