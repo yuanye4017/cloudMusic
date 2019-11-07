@@ -4,9 +4,9 @@ import { Carousel } from 'antd-mobile';
 function Swiper() {
      const data = ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI']
     return (
-        <div> 
+        <> 
             <Carousel
-                autoplay={false}
+                autoplay={true}
                 infinite
                 beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
                 afterChange={index => console.log('slide to', index)}>
@@ -27,7 +27,7 @@ function Swiper() {
                     </a>
                   ))}
             </Carousel>
-        </div>
+        </>
     )
 }
 
