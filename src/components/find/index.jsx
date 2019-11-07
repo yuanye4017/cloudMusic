@@ -1,16 +1,43 @@
-import React,{useState} from "react"
+import React,{useState,useEffect} from "react"
 import asyncComponent from '@/utils/asyncComponent';
 import "./index.scss"
-
+import { getPlaylist,getNewest,getNewSong } from "@/api/api"
 const Swiper = asyncComponent(() => import("@/components/find/swiper"));
 const NavTag = asyncComponent(() => import("@/components/find/navTag"));
 const MusicTheme = asyncComponent(() => import("@/components/MusicTheme/index"));
 
 function Find() {
     const [newMusicActive,setNewMusicActive] = useState(true)
-
-    const arr = [1,2,3,4,5,6]
-    const arr2 = [1,2,3]
+    const [playlist,setPlaylist] = useState([])
+    const [newest,setNewest] = useState([])
+    
+    const getNewMusic = (type) => {
+        setNewMusicActive(!newMusicActive);
+        if(type === '1') {
+            getNewest().then((data) => {
+                setNewest([...data.albums.slice(0,3)])
+            })
+        }else {
+            getNewSong().then((data) => {
+               console.log(data)
+               var arrList = data.data.slice(1,4)
+               var arr = [];
+               arrList.forEach(element => {
+                    arr.push(element.album)
+               });
+               setNewest([...arr])
+            })
+        }
+       
+    }
+    useEffect(() => {
+        getPlaylist().then((data) => {
+            setPlaylist(data.playlists)
+        })
+        getNewest().then((data) => {
+            setNewest(data.albums.slice(0,3))
+        })
+    },[])
     return (
         <>
             <div className="banner">
@@ -27,14 +54,18 @@ function Find() {
                     </div>
                     <div className="recommend-music-theme">
                         {
-                            arr.map((value) => {
+                            playlist.map((value) => {
                                 return (
                                     <MusicTheme 
+                                        key={value.id}
                                         showHeader={true}
                                         showFooter={true}
                                         width={'31.5%'}
                                         marginbottom={"0.36rem"} 
-                                        key={value}></MusicTheme>
+                                        imgUrl={value.coverImgUrl} 
+                                        introduce={value.description}
+                                        num={value.playCount}
+                                    ></MusicTheme>
                                 )
                             })
                         }
@@ -43,22 +74,25 @@ function Find() {
                 <div className="recommend recommend-music">
                     <div className="new-music">
                         <p className="new-music-tip">
-                            <span className={newMusicActive ? 'active' : null} onClick={() => setNewMusicActive(!newMusicActive)}>新碟</span > 
+                            <span className={newMusicActive ? 'active' : null} onClick={() => getNewMusic('1')}>新碟</span > 
                             <span style={{padding:'0 0.16rem'}}>|</span>   
-                            <span className={newMusicActive ? null : 'active'} onClick={() => setNewMusicActive(!newMusicActive)}>新歌</span>  
+                            <span className={newMusicActive ? null : 'active'} onClick={() => getNewMusic('2')}>新歌</span>  
                         </p>
                         <p className="right-tip">更多新碟</p>
                     </div>
                     <div className="recommend-music-theme">
                         {
-                            arr2.map((value) => {
+                            newest.map((value) => {
                                 return (
                                     <MusicTheme 
                                         showHeader={false}
                                         showFooter={false}
                                         width={'31.5%'}
                                         marginbottom={"0.36rem"} 
-                                        key={value}></MusicTheme>
+                                        imgUrl={value.picUrl} 
+                                        introduce={value.company}
+                                        name={value.name}
+                                        key={value.id}></MusicTheme>
                                 )
                             })
                         }
