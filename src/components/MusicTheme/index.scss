@@ -1,5 +1,5 @@
 .am-card:not(.am-card-full)::before {
-    border: 0;
+    border: 0 !important;
 }
 .am-card {
     position: relative;
@@ -34,6 +34,19 @@
             line-height: 0.3rem;
             font-size: 0.2rem;
             color: #000000;
+        }
+        .card-tip-def {
+            p{
+                line-height: 0.3rem;
+                font-size: 0.2rem;
+                color: #000000;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+            }
+            p:last-child {
+                color: #727272
+            }
         }
     }
 } 
