@@ -40,7 +40,7 @@ function Find() {
                         }
                     </div>
                 </div>
-                <div className="recommend">
+                <div className="recommend recommend-music">
                     <div className="new-music">
                         <p className="new-music-tip">
                             <span className={newMusicActive ? 'active' : null} onClick={() => setNewMusicActive(!newMusicActive)}>新碟</span > 

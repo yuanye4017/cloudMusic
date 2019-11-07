@@ -1,46 +1,84 @@
+/* banner */ 
+.banner{
+    width:100%;
+    padding: .28rem .32rem;
+    background: #ffffff;
+    .slider-slide{
+        overflow: hidden;
+        border-radius: .15rem;
+    }
+}
+/* list入口 */ 
+.navTag {
+    padding:0 .32rem;
+    .am-flexbox-item {
+        height: 100%;
+        width: 0.88rem;
+        padding:.15rem 0;
+        flex: none !important;
+        img {
+            width: 0.88rem;
+            height: 0.88rem;
+        }
+        .navTag-title {
+            color: #333;
+            height: 0.55rem;
+            line-height: 0.55rem;
+            font-size: 0.2rem;
+            text-align: center;
+        }
+    }
+}
+/* music */
 .recommend-wrap {
     background: #ffffff;
-    border-top: solid 1px #f1f1f1;
 }
 .recommend {
-    margin-bottom: 0.4rem;
-    .recommend-tip {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.26rem 0;
+    padding:0 .32rem;
+    background: #ffffff;
+    border-top: solid 1px #e6e6e6;
+    margin-bottom: 0.36rem;
+}
+.recommend-music {
+    border: 0;
+}
+.recommend-tip {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.26rem 0;
+}
+.new-music {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.3rem;
+    .new-music-tip {
+        line-height: 0.48rem;
+        font-size: 0.22rem;
+        color: #9d9d9d;
     }
-    .new-music {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 0.3rem;
-        .new-music-tip {
-            line-height: 0.48rem;
-            font-size: 0.22rem;
-            color: #9d9d9d;
-        }
-        .active {
-            color: #000000;
-            font-size: 0.3rem;
-            font-weight: 900;
-        }
-    }
-    .left-tip {
+    .active {
+        color: #000000;
         font-size: 0.3rem;
         font-weight: 900;
-        line-height: 0.48rem;
-    }
-    .right-tip {
-        width: 1.3rem;
-        height: 0.48rem;
-        border: solid 1px #f1f1f1;
-        line-height: 0.48rem;
-        text-align: center;
-        font-size: 0.22rem;
-        border-radius: 0.24rem;
-    }
-    .recommend-music-theme {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
     }
 }
+.left-tip {
+    font-size: 0.3rem;
+    font-weight: 900;
+    line-height: 0.48rem;
+}
+.right-tip {
+    width: 1.3rem;
+    height: 0.48rem;
+    border: solid 1px #f1f1f1;
+    line-height: 0.48rem;
+    text-align: center;
+    font-size: 0.22rem;
+    border-radius: 0.24rem;
+}
+.recommend-music-theme {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
