@@ -9,10 +9,10 @@ function Find() {
     const arr = [1,2,3,4,5,6]
     return (
         <>
-            <div style={{padding:"0.38rem 0",background:'#fff'}}>
+            <div className="banner">
                 <Swiper></Swiper>
             </div>
-            <div style={{background:"#fff",paddingBottom:'0.18rem'}}> 
+            <div style={{background:"#fff"}}>
                 <NavTag></NavTag>
             </div>
             <div className="recommend">

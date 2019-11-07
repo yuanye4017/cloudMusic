@@ -4,7 +4,7 @@ import { Carousel } from 'antd-mobile';
 function Swiper() {
      const data = ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI']
     return (
-        <> 
+        <>
             <Carousel
                 autoplay={true}
                 infinite
