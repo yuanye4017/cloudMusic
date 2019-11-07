@@ -1,5 +1,6 @@
-import React,{Fragment} from "react"
+import React from "react"
 import asyncComponent from '@/utils/asyncComponent';
+import "./index.scss"
 
 const Swiper = asyncComponent(() => import("@/components/find/swiper"));
 const NavTag = asyncComponent(() => import("@/components/find/navTag"));
