@@ -10,7 +10,7 @@ function Find() {
     const [newMusicActive,setNewMusicActive] = useState(true)
     const [playlist,setPlaylist] = useState([])
     const [newest,setNewest] = useState([])
-    
+
     const getNewMusic = (type) => {
         setNewMusicActive(!newMusicActive);
         if(type === '1') {
@@ -19,7 +19,6 @@ function Find() {
             })
         }else {
             getNewSong().then((data) => {
-               console.log(data)
                var arrList = data.data.slice(1,4)
                var arr = [];
                arrList.forEach(element => {
@@ -28,11 +27,11 @@ function Find() {
                setNewest([...arr])
             })
         }
-       
+
     }
     useEffect(() => {
         getPlaylist().then((data) => {
-            setPlaylist(data.playlists)
+            setPlaylist(data.result)
         })
         getNewest().then((data) => {
             setNewest(data.albums.slice(0,3))
@@ -56,15 +55,19 @@ function Find() {
                         {
                             playlist.map((value) => {
                                 return (
-                                    <MusicTheme 
+                                    <MusicTheme
                                         key={value.id}
-                                        showHeader={true}
-                                        showFooter={true}
-                                        width={'31.5%'}
-                                        marginbottom={"0.36rem"} 
-                                        imgUrl={value.coverImgUrl} 
-                                        introduce={value.description}
-                                        num={value.playCount}
+                                        id={value.id}
+                                        type={value.type}
+                                        name={value.name}
+                                        copywriter={value.copywriter}
+                                        picUrl={value.picUrl}
+                                        canDislike={value.canDislike}
+                                        trackNumberUpdateTime={value.trackNumberUpdateTime}
+                                        playCount={value.playCount}
+                                        trackCount={value.trackCount}
+                                        highQuality={value.highQuality}
+                                        alg={value.alg}
                                     ></MusicTheme>
                                 )
                             })
@@ -74,9 +77,9 @@ function Find() {
                 <div className="recommend recommend-music">
                     <div className="new-music">
                         <p className="new-music-tip">
-                            <span className={newMusicActive ? 'active' : null} onClick={() => getNewMusic('1')}>新碟</span > 
-                            <span style={{padding:'0 0.16rem'}}>|</span>   
-                            <span className={newMusicActive ? null : 'active'} onClick={() => getNewMusic('2')}>新歌</span>  
+                            <span className={newMusicActive ? 'active' : null} onClick={() => getNewMusic('1')}>新碟</span >
+                            <span style={{padding:'0 0.16rem'}}>|</span>
+                            <span className={newMusicActive ? null : 'active'} onClick={() => getNewMusic('2')}>新歌</span>
                         </p>
                         <p className="right-tip">更多新碟</p>
                     </div>
@@ -84,15 +87,20 @@ function Find() {
                         {
                             newest.map((value) => {
                                 return (
-                                    <MusicTheme 
-                                        showHeader={false}
-                                        showFooter={false}
-                                        width={'31.5%'}
-                                        marginbottom={"0.36rem"} 
-                                        imgUrl={value.picUrl} 
-                                        introduce={value.company}
+                                    <MusicTheme
+                                        key={value.id}
+                                        id={value.id}
+                                        type={value.type}
                                         name={value.name}
-                                        key={value.id}></MusicTheme>
+                                        copywriter={value.copywriter}
+                                        picUrl={value.blurPicUrl}
+                                        canDislike={value.canDislike}
+                                        trackNumberUpdateTime={value.trackNumberUpdateTime}
+                                        playCount={value.playCount}
+                                        trackCount={value.trackCount}
+                                        highQuality={value.highQuality}
+                                        alg={value.alg}
+                                    ></MusicTheme>
                                 )
                             })
                         }

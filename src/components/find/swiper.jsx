@@ -19,12 +19,13 @@ function Swiper() {
                 {banner.map(val => (
                     <a
                       key={val}
-                      href="http://www.alipay.com"
+                      href={val.url}
                       style={{ display: 'inline-block', width: '100%' }}
                     >
+                      <span style={{background:val.titleColor}}>{val.typeTitle}</span>
                       <img
                         src={val.pic}
-                        alt=""
+                        alt={val.pic}
                         style={{ width: '100%', verticalAlign: 'top' }}
                         onLoad={() => {
                           window.dispatchEvent(new Event('resize'));

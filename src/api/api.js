@@ -23,7 +23,7 @@ export function getBanner() {
     return apiAxios("GET", url)
 }
 export function getPlaylist() {
-    let url = `${BASE_URL}/top/playlist/highquality?limit=6`;
+    let url = `${BASE_URL}/personalized?limit=6`;
     return apiAxios("GET", url)
 }
 export function getNewest() {

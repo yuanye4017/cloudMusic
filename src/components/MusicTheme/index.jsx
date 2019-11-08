@@ -1,40 +1,32 @@
 import React from "react"
 import { Card } from 'antd-mobile';
 import "./index.scss"
-
-function MusicTheme({width,marginbottom,showHeader,showFooter,imgUrl,introduce,num,name}) {
-    const footer = (introduce) => {
-        if(showFooter) {
-            return (
-                <div className="card-tip">{introduce}</div>
-            )
-        }else {
-            return (
-                <div className="card-tip-def">
-                    <p>{name} &nbsp;</p>
-                    <p>{introduce ? introduce :<span>&nbsp;</span>}</p>
-                </div>
-            )
-        }  
-    }
-    const count = (num, point) => {
-        let numStr = num.toString()
-        if (numStr.length < 6) {
-            return numStr;
-        }else if (numStr.length > 5) {
-            let decimal = numStr.substring(numStr.length - 4, numStr.length - 4 + point)
-            return parseFloat(parseInt(num / 10000) + '.' + decimal) + 'w';
+import crown from "@/images/list_imgs/crown.png"
+import wan from "@/images/list_imgs/wan.png"
+function MusicTheme(obj) {
+    // console.log(obj)
+    const count = (num) => {
+        if(num > 100000){;
+            return parseInt(num / 10000) + "万"
+        }else{
+            return num
         }
     }
     return (
         <>
-            <Card style={{width:width,marginBottom:marginbottom}}>
-                {showHeader ? <Card.Header extra={<span style={{padding:"0 0.15rem"}}>{count(num,0)}</span>}/> : null}
+            <Card >
                 <Card.Body>
-                    <img src={imgUrl} alt=""/>
+                    <div className="card-top">
+                        <img src={crown} alt="精品歌单" style={{display:obj.highQuality?"block":"none"}}/>
+                        <p style={{display:obj.playCount?"flex":"none"}}>
+                            <img src={wan} alt="播放次数"/>
+                            <span>{count(obj.playCount)}</span>
+                        </p>
+                    </div>
+                    <img src={obj.picUrl} alt={obj.picUrl}/>
                 </Card.Body>
-                <Card.Footer 
-                    content={footer(introduce)} />
+                <Card.Footer
+                    content={obj.name} />
             </Card>
         </>
     )

@@ -1,4 +1,4 @@
-/* banner */ 
+/* banner */
 .banner{
     width:100%;
     padding: .28rem .32rem;
@@ -7,9 +7,20 @@
     .slider-slide{
         overflow: hidden;
         border-radius: .15rem;
+        span{
+            display:block;
+            padding:.12rem .15rem;
+            font-size:.2rem;
+            color:#ffffff;
+            border-radius:.12rem 0 .12rem 0;
+            position: absolute;
+            bottom:0;
+            right: 0;
+            opacity:.7;
+        }
     }
 }
-/* list入口 */ 
+/* list入口 */
 .navTag {
     padding:0 .32rem;
     .am-flexbox-item {
@@ -81,5 +92,56 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    .am-card{
+        margin-bottom:.3rem;
+        width:31.5%;
+        border:none!important;
+        .am-card-body{
+            .card-top{
+                position: absolute;
+                top:0;
+                width:100%;
+                height:.4rem;
+                img{
+                   float:left;
+                   width:.39rem;
+                   height:100%;
+                }
+                p{
+                    height:.4rem;
+                    float:right;
+                    display: flex;
+                    align-items:center;
+                    img{
+                        width:.2rem;
+                        height:60%;
+                    }
+                    span{
+                        font-size:.2rem;
+                        color: #fff;
+                        padding:0 .1rem 0 .05rem;
+                    }
+                }
+            }
+            img{
+                width:100%;
+                height:100%;
+                border-radius:.12rem;
+            }
+        }
+        .am-card-footer{
+            color: #333;
+            font-size:.22rem;
+            height:.6rem;
+            line-height:.3rem;
+            text-overflow:ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            margin-top:.15rem;
+        }
+    }
 }
+
 
