@@ -4,7 +4,7 @@ import "./index.scss"
 import crown from "@/images/list_imgs/crown.png"
 import wan from "@/images/list_imgs/wan.png"
 function MusicTheme(obj) {
-    // console.log(obj)
+    console.log(obj)
     const count = (num) => {
         if(num > 100000){;
             return parseInt(num / 10000) + "万"
