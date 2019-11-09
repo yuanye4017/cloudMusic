@@ -2,8 +2,8 @@ import React,{useState,useEffect} from "react"
 import asyncComponent from '@/utils/asyncComponent';
 import "./index.scss"
 import { getPlaylist,getNewest,getNewSong } from "@/api/api"
-const Swiper = asyncComponent(() => import("@/components/find/swiper"));
-const NavTag = asyncComponent(() => import("@/components/find/navTag"));
+const Swiper = asyncComponent(() => import("./Swiper"));
+const NavTag = asyncComponent(() => import("./NavTag"));
 const MusicTheme = asyncComponent(() => import("@/components/MusicTheme/index"));
 
 function Find() {

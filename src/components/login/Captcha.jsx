@@ -4,7 +4,7 @@ import { InputItem } from 'antd-mobile';
 import { verification } from "@/api/api.js"
 
 function Captcha({ userPhone, captcha ,changeCaptcha,handelChangeToggle,getFieldProps}) {
-    const [timer,setTimer] = useState(5)
+    const [timer,setTimer] = useState(60)
     const [disabledInput,setDisabledInput] = useState(0)
     const textInput = useRef()
     const onKeyup = (e,index) => {     
@@ -40,14 +40,14 @@ function Captcha({ userPhone, captcha ,changeCaptcha,handelChangeToggle,getField
     },[disabledInput])
     
     useEffect(() => {
-        const tiemr = setTimeout(() => {
-            setTimer(timer - 1);
+        const time = setTimeout(() => {
+            setTimer(timer => timer - 1);
             if(timer === 0) {
-                setTimer('炸了吧');
+                setTimer(0);
             }
         }, 1000);
         return () => {
-          clearTimeout(tiemr); 
+          clearTimeout(time); 
         };
     },[]);
 

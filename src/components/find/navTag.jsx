@@ -5,7 +5,7 @@ import title_2 from "@/images/find_imgs/title_2.png"
 import title_3 from "@/images/find_imgs/title_3.png"
 import title_4 from "@/images/find_imgs/title_4.png"
 import title_5 from "@/images/find_imgs/title_5.png"
-function navTag() {
+function NavTag() {
     return (
         <Flex className="navTag" justify="between">
             <Flex.Item>
@@ -32,4 +32,4 @@ function navTag() {
     )
 }
 
-export default navTag
+export default NavTag
