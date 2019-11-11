@@ -10,6 +10,28 @@
             height: 30%;
         }
     }
+    .login-button,.login-next{
+        height: 0.8rem;
+        font-size: 0.32rem;
+        border-radius: 0.4rem;
+        line-height: 0.8rem;
+        border: 0.01rem solid #ffffff!important;
+    }
+    .login-button:nth-child(1){
+        background: #ffffff;
+        color: #db2c1f;
+    }
+    .login-button:nth-child(2){
+        background: #db2c1f;
+        color: #ffffff;
+    }
+    .login-button::before {
+        border-radius: 1rem !important;
+    }
+    .login-next{
+        background: #db2c1f;
+        color: #ffffff;
+    }
 }
 .login-bottom {
     width: 100%;
@@ -98,28 +120,6 @@
         font-size: 0.32rem;
     }
 }
-.login-button,.login-next{
-    height: 0.8rem;
-    font-size: 0.32rem;
-    border-radius: 0.4rem;
-    line-height: 0.8rem;
-    border: 0.01rem solid #ffffff!important;
-}
-.login-button:nth-child(1){
-    background: #ffffff;
-    color: #db2c1f;
-}
-.login-button:nth-child(2){
-    background: #db2c1f;
-    color: #ffffff;
-}
-.login-button::before {
-    border-radius: 1rem !important;
-}
-.login-next{
-    background: #db2c1f;
-    color: #ffffff;
-}
 .verification-code {
     overflow: hidden;
     p:nth-child(1) {
@@ -147,7 +147,6 @@
         }
     }
 }
-
 // 提示框
 .am-toast-notice-content .am-toast-text {
     background: #ffffff;

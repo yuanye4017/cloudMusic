@@ -36,6 +36,10 @@ function DailyAdvice({ history }) {
             setMusicList([...data.dailySongs])
         })
         window.addEventListener('scroll', bindHandleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', bindHandleScroll)
+        }
     },[])
     return (
         <div className="daily-advice-wrap">
