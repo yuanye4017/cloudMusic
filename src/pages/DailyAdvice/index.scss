@@ -1,0 +1,66 @@
+.daily-advice-wrap {
+    height: 100%;
+    width: 100%;
+    float: left;
+    background: #ffffff url("../../images/09571010.jpg") no-repeat left top;
+}
+.daily-advice-header {
+    padding: .42rem .32rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    .iconfont {
+        font-size: .4rem;
+    }
+}
+
+.daily-advice-time {
+    font-size: .2rem;
+    color: #ffffff;
+    padding: 0 .32rem;
+    margin-top: 1.24rem;
+}
+
+.daily-advice-history {
+    .right-tip {
+        font-size: .36rem;
+        line-height: .4rem;
+    }
+
+    .left-icon {
+        width: 1.76rem;
+        height: .42rem;
+        text-align: center;
+        line-height: .42rem;
+        border-radius: .25rem;
+        background: #eedee1;
+        color: #000;
+        font-size: .22rem;
+    }
+
+    .right-icon {
+        font-size: .36rem;
+        float: left;
+    }
+
+    .right-head {
+        float: left;
+        width: .4rem;
+        height: .4rem;
+        border-radius: 50%;
+        line-height: .4rem;
+        text-align: center;
+        background: red;
+    }
+
+    span:nth-of-type(2) {
+        background: rgb(77, 49, 175);
+        transform: translateX(0);
+    }
+
+    span:nth-of-type(1) {
+        background: rgb(30, 43, 161);
+        transform: translateX(.6rem);
+    }
+}
