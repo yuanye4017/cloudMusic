@@ -4,7 +4,7 @@ import { Tabs, Badge, Drawer } from 'antd-mobile';
 import asyncComponent from '@/utils/asyncComponent';
 import menu from '@/images/tab_imgs/menu.png'
 import search from '@/images/tab_imgs/search.png'
-const Find = asyncComponent(() => import("@/components/Find"));
+const Find = asyncComponent(() => import("@/components/find"));
 const tabs = [
     { title: <Badge>我的</Badge> },
     { title: <Badge>发现</Badge> },

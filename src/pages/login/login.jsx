@@ -2,10 +2,10 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { createForm } from 'rc-form';
 import asyncComponent from '@/utils/asyncComponent';
 import "./login.scss"
-const Choice = asyncComponent(() => import("@/components/Login/Choice"));
-const Phone = asyncComponent(() => import("@/components/Login/Phone"));
-const Captcha = asyncComponent(() => import("@/components/Login/Captcha"));
-const PassWord = asyncComponent(() => import("@/components/Login/PassWord"));
+const Choice = asyncComponent(() => import("@/components/login/Choice"));
+const Phone = asyncComponent(() => import("@/components/login/Phone"));
+const Captcha = asyncComponent(() => import("@/components/login/Captcha"));
+const PassWord = asyncComponent(() => import("@/components/login/PassWord"));
 
 function Login({form,history}) {
     const [toggle, setToggle] = useState(1)

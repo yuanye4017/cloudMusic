@@ -9,13 +9,13 @@ function DailyAdvice({ history }) {
     const [title,setTitle] = useState("")
     const [showMark,setShowMark] = useState(false)
     const [absorbTop,setAbsorbTop] = useState(false)
-    
+
     const goBack = () => {
         history.goBack()
     }
     const bindHandleScroll = (event) =>{
-        const scrollTop = (event.srcElement ? event.srcElement.documentElement.scrollTop : false) 
-        if(scrollTop > 10) { 
+        const scrollTop = (event.srcElement ? event.srcElement.documentElement.scrollTop : false)
+        if(scrollTop > 10) {
             setShowMark(true)
         }else {
             setShowMark(false)
@@ -25,13 +25,14 @@ function DailyAdvice({ history }) {
             setAbsorbTop(true)
             setTitle("每日推荐")
         }else {
-            setAbsorbTop(false) 
+            setAbsorbTop(false)
             setTitle("")
         }
     }
 
     useEffect(() => {
         getDailySong().then(({data}) => {
+            console.log(data)
             setMusicList([...data.dailySongs])
         })
         window.addEventListener('scroll', bindHandleScroll)
@@ -39,11 +40,11 @@ function DailyAdvice({ history }) {
     return (
         <div className="daily-advice-wrap">
             <div className="daily-advice-header">
-                <Header 
+                <Header
                     onLeftClick = {() => goBack()}
                     style={{height:'.4rem',color:'#fff'}}
                     left = {[<i className="iconfont icon-flow"></i>,<span className="title">{title}</span>]}
-                    right = {[<i className="iconfont icon-wenhao"></i>]}> 
+                    right = {[<i className="iconfont icon-wenhao"></i>]}>
                 </Header>
             </div>
             <div className={ showMark ? "mark-wrap" : ''} style={absorbTop ? { position:"fixed",top:"-.6rem" } : {}}>
@@ -53,13 +54,13 @@ function DailyAdvice({ history }) {
                     <span style={{fontSize:".26rem"}}>11</span>
                 </div>
                 <div className="daily-advice-history">
-                    <Header 
+                    <Header
                         style={{height:'.5rem',color:'#fff'}}
                         left = {[<div className="left-icon">今日推荐</div>]}
                         right = {[<span className="right-head">1</span>,
                                 <span className="right-head">2</span>,
                                 <span className="right-head">3</span>,
-                                <i className="iconfont icon-youbianjiantou right-icon"></i>]}> 
+                                <i className="iconfont icon-youbianjiantou right-icon"></i>]}>
                     </Header>
                 </div>
             </div>
