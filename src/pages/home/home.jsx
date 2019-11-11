@@ -11,7 +11,7 @@ const tabs = [
     { title: <Badge dot>云村</Badge> },
     { title: <Badge>视频</Badge> },
 ];
-function Home() {
+function Home({ history }) {
     const [open,setOpen] = useState(false)
     const onOpenChange = () => {
         setOpen(!open)
@@ -40,7 +40,7 @@ function Home() {
                             我的
                         </div>
                         <div className="find-wrap">
-                            <Find />
+                            <Find history={history} />
                         </div>
                         <div>
                             云村

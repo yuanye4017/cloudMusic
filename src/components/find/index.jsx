@@ -6,7 +6,7 @@ const Swiper = asyncComponent(() => import("./Swiper"));
 const NavTag = asyncComponent(() => import("./NavTag"));
 const MusicTheme = asyncComponent(() => import("@/components/MusicTheme/index"));
 
-function Find() {
+function Find({ history }) {
     const [newMusicActive,setNewMusicActive] = useState(true)
     const [playlist,setPlaylist] = useState([])
     const [newest,setNewest] = useState([])
@@ -43,7 +43,7 @@ function Find() {
                 <Swiper></Swiper>
             </div>
             <div style={{background:"#fff"}}>
-                <NavTag></NavTag>
+                <NavTag history={history}></NavTag>
             </div>
             <div className="recommend-wrap">
                 <div className="recommend">
