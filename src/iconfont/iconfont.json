@@ -6,11 +6,25 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "201560",
+      "name": "喇叭",
+      "font_class": "laba",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "287175",
       "name": "搜索",
       "font_class": "sousuo",
       "unicode": "e634",
       "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "339044",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
     },
     {
       "icon_id": "599914",
@@ -55,11 +69,74 @@
       "unicode_decimal": 58971
     },
     {
+      "icon_id": "1106018",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "1163123",
+      "name": "右边箭头",
+      "font_class": "youbianjiantou",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "1163124",
+      "name": "左边箭头",
+      "font_class": "zuobianjiantou",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
       "icon_id": "1274273",
       "name": "微信",
       "font_class": "weixin1",
       "unicode": "e605",
       "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "2076319",
+      "name": "播放",
+      "font_class": "bofang1",
+      "unicode": "e8a3",
+      "unicode_decimal": 59555
+    },
+    {
+      "icon_id": "2380683",
+      "name": "循环",
+      "font_class": "xunhuan",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "3185528",
+      "name": "问好",
+      "font_class": "wenhao",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "3878661",
+      "name": "热",
+      "font_class": "fire",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "5270852",
+      "name": "收 藏-产品详情",
+      "font_class": "shoucang",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "5651571",
+      "name": "圆点菜单",
+      "font_class": "yuandiancaidan",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
     },
     {
       "icon_id": "7239850",
@@ -69,11 +146,39 @@
       "unicode_decimal": 59206
     },
     {
+      "icon_id": "7383189",
+      "name": "评论",
+      "font_class": "jianyi",
+      "unicode": "e6d3",
+      "unicode_decimal": 59091
+    },
+    {
+      "icon_id": "7949547",
+      "name": "点赞",
+      "font_class": "dianzan",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "8843574",
+      "name": "加",
+      "font_class": "jia",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
       "icon_id": "9512624",
       "name": "菜单",
       "font_class": "menu",
       "unicode": "e633",
       "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "9826644",
+      "name": "菜单",
+      "font_class": "caidan1",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
     }
   ]
 }
