@@ -4,17 +4,28 @@
     float: left;
     background: #ffffff url("../../images/09571010.jpg") no-repeat left top;
 }
+.mark-wrap{
+    width:100%;
+    background: inherit;
+    filter: blur(4px);
+    overflow: hidden;
+}
 .daily-advice-header {
     padding: .42rem .32rem;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 3;
     .iconfont {
         font-size: .4rem;
     }
+    .title {
+        font-size: .3rem;
+        line-height: .4rem;
+        padding: 0 .1rem;
+    }
 }
-
 .daily-advice-time {
     font-size: .2rem;
     color: #ffffff;
@@ -23,6 +34,7 @@
 }
 
 .daily-advice-history {
+    padding: .2rem .32rem;
     .right-tip {
         font-size: .36rem;
         line-height: .4rem;

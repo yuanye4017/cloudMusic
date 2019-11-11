@@ -29,10 +29,10 @@ const detailHTML = (name,alias=[],artists=[],album) => {
         </div>
     )
 }
-function MusicList({ list }) {
+function MusicList({ list , absorbTop}) {
     return (
         <>
-            <div className="music-header">
+            <div className={absorbTop ? "absorb-top music-header" : "music-header"}>
                 <Header 
                     style={{height:'.5rem',color:'#000'}}
                     left = {[<i className="iconfont icon-bofang left-tip"></i>, <span className="left-tip">播放全部</span>]}
