@@ -1,7 +1,8 @@
 import React , { useState,useEffect } from "react"
 import "./index.scss"
 import asyncComponent from '@/utils/asyncComponent';
-import { getDailySong } from "@/api/api"
+import { getDailySong ,getDayBg } from "@/api/api"
+import vip from '@/images/list_imgs/vip.png'
 const Header = asyncComponent(() => import("@/components/Header"));
 const MusicList = asyncComponent(() => import("@/components/MusicList"));
 function DailyAdvice({ history }) {
@@ -9,19 +10,19 @@ function DailyAdvice({ history }) {
     const [title,setTitle] = useState("")
     const [showMark,setShowMark] = useState(false)
     const [absorbTop,setAbsorbTop] = useState(false)
-
+    const [date] = useState(new Date());
     const goBack = () => {
         history.goBack()
     }
     const bindHandleScroll = (event) =>{
         const scrollTop = (event.srcElement ? event.srcElement.documentElement.scrollTop : false)
+        console.log(scrollTop)
         if(scrollTop > 10) {
             setShowMark(true)
         }else {
             setShowMark(false)
         }
-
-        if(scrollTop >= 165) {
+        if(scrollTop >= 100) {
             setAbsorbTop(true)
             setTitle("每日推荐")
         }else {
@@ -32,7 +33,6 @@ function DailyAdvice({ history }) {
 
     useEffect(() => {
         getDailySong().then(({data}) => {
-            console.log(data)
             setMusicList([...data.dailySongs])
         })
         window.addEventListener('scroll', bindHandleScroll)
@@ -43,29 +43,39 @@ function DailyAdvice({ history }) {
     },[])
     return (
         <div className="daily-advice-wrap">
-            <div className="daily-advice-header">
+            <div className={absorbTop ? "daily-absorb-header daily-advice-header" : "daily-advice-header"}>
                 <Header
                     onLeftClick = {() => goBack()}
-                    style={{height:'.4rem',color:'#fff'}}
-                    left = {[<i className="iconfont icon-flow"></i>,<span className="title">{title}</span>]}
+                    style={{height:'.92rem',color:'#fff'}}
+                    left = {[<i className="iconfont icon-flow"></i>,<span className="daily-title">{title}</span>]}
                     right = {[<i className="iconfont icon-wenhao"></i>]}>
                 </Header>
             </div>
-            <div className={ showMark ? "mark-wrap" : ''} style={absorbTop ? { position:"fixed",top:"-.6rem" } : {}}>
+            <div className={ showMark ? "mark-wrap" : ''}>
                 <div className="daily-advice-time">
-                    <span style={{fontSize:".5rem"}}>9</span>
-                    <span style={{padding:"0 .04rem",fontSize:".32rem"}}>/</span>
-                    <span style={{fontSize:".26rem"}}>11</span>
+                    <span style={{fontSize:".6rem"}}>{date.getDate()}</span>
+                    <span style={{padding:"0 .1rem",fontSize:".3rem"}}>/</span>
+                    <span style={{fontSize:".3rem"}}>{date.getMonth()+1 < 10 ? "0" + (date.getMonth()+1) : date.getMonth()+1}</span>
                 </div>
                 <div className="daily-advice-history">
                     <Header
-                        style={{height:'.5rem',color:'#fff'}}
-                        left = {[<div className="left-icon">今日推荐</div>]}
-                        right = {[<span className="right-head">1</span>,
+                        style={{height:'.48rem',color:'#fff'}}
+                        left = {[<div className="left-icon">历史推荐 <img src={vip} alt="黑胶会员" /></div>]}
+                        right = {[<div className="right-icon">
+                                <span className="right-head">1</span>,
                                 <span className="right-head">2</span>,
                                 <span className="right-head">3</span>,
-                                <i className="iconfont icon-youbianjiantou right-icon"></i>]}>
+                                <i className="iconfont icon-youbianjiantou"></i>
+                                </div>]}>
                     </Header>
+                    <div className="daily-left">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div className="daily-right">
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
             <MusicList list={ musicList } absorbTop={absorbTop}></MusicList>

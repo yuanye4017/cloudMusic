@@ -15,6 +15,7 @@
         }
     }
     .am-card-body {
+        border:none;
         padding: 0;
         img {
             width: 100%;
@@ -30,10 +31,10 @@
         .card-tip {
             word-break: break-all;
             text-overflow: ellipsis;
-            display: -webkit-box; 
-            -webkit-box-orient: vertical; 
-            -webkit-line-clamp: 2; 
-            overflow: hidden;  
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
             line-height: 0.3rem;
             font-size: 0.2rem;
             color: #000000;
@@ -52,4 +53,4 @@
             }
         }
     }
-} 
+}

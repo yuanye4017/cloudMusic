@@ -3,7 +3,6 @@
     padding: .2rem .32rem;
     background: #ffffff;
     border-radius: .36rem .36rem 0 0;
-    margin-top: .12rem;
     z-index: 4;
    .left-tip {
        font-size: .3rem;
@@ -22,8 +21,12 @@
 }
 .absorb-top {
     position: fixed;
-    top: 1.2rem;
+    top: 1.27rem;
     width: 100%;
+}
+.absorb-bottom {
+    position: relative;
+    top: .8rem;
 }
 .music-list {
     padding: 0 .32rem;

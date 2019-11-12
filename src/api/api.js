@@ -54,3 +54,9 @@ export function getDailySong() {
     let url = `${BASE_URL}/recommend/songs`;
     return apiAxios("GET", url)
 }
+
+/*歌单收藏者*/
+export function getDailyBg() {
+    let url = `${BASE_URL}/playlist/subscribers?id=544215255&limit=3`;
+    return apiAxios("GET", url)
+}

@@ -5,10 +5,12 @@ import crown from "@/images/list_imgs/crown.png"
 import wan from "@/images/list_imgs/wan.png"
 function MusicTheme(obj) {
     const count = (num) => {
-        if(num > 100000){;
+        if(num > 100000 && num < 100000000){;
             return parseInt(num / 10000) + "万"
-        }else{
+        }else if(num < 100000){
             return num
+        }else{
+            return parseFloat(num / 100000000).toFixed(1) + "亿"
         }
     }
     return (
