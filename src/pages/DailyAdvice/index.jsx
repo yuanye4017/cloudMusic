@@ -1,7 +1,7 @@
 import React , { useState,useEffect } from "react"
 import "./index.scss"
 import asyncComponent from '@/utils/asyncComponent';
-import { getDailySong ,getDayBg } from "@/api/api"
+import { getDailySong } from "@/api/api"
 import vip from '@/images/list_imgs/vip.png'
 const Header = asyncComponent(() => import("@/components/Header"));
 const MusicList = asyncComponent(() => import("@/components/MusicList"));
@@ -16,7 +16,7 @@ function DailyAdvice({ history }) {
     }
     const bindHandleScroll = (event) =>{
         const scrollTop = (event.srcElement ? event.srcElement.documentElement.scrollTop : false)
-        console.log(scrollTop)
+
         if(scrollTop > 10) {
             setShowMark(true)
         }else {
@@ -43,7 +43,7 @@ function DailyAdvice({ history }) {
     },[])
     return (
         <div className="daily-advice-wrap">
-            <div className={absorbTop ? "daily-absorb-header daily-advice-header" : "daily-advice-header"}>
+            <div className={absorbTop ? "daily-absorb-header daily-advice-header" : "daily-advice-header"} style={showMark ? {background: "linear-gradient(45deg,rgba(254,172,94,1),rgba(199,121,208,1),rgba(75,192,200,1))",height:"1.6rem"} : {}}>
                 <Header
                     onLeftClick = {() => goBack()}
                     style={{height:'.92rem',color:'#fff'}}
@@ -62,7 +62,7 @@ function DailyAdvice({ history }) {
                         style={{height:'.48rem',color:'#fff'}}
                         left = {[<div className="left-icon">历史推荐 <img src={vip} alt="黑胶会员" /></div>]}
                         right = {[<div className="right-icon">
-                                <span className="right-head">1</span>,
+                                <span className="right-head"></span>,
                                 <span className="right-head">2</span>,
                                 <span className="right-head">3</span>,
                                 <i className="iconfont icon-youbianjiantou"></i>

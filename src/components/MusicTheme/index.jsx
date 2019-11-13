@@ -13,9 +13,12 @@ function MusicTheme(obj) {
             return parseFloat(num / 100000000).toFixed(1) + "亿"
         }
     }
+    const goSongList = (id) => {
+        console.log(id,this)
+    }
     return (
         <>
-            <Card >
+            <Card onClick={() => goSongList(obj.id)}>
                 <Card.Body>
                     <div className="card-top">
                         <img src={crown} alt="精品歌单" style={{display:obj.highQuality?"block":"none"}}/>
