@@ -22,7 +22,7 @@ function DailyAdvice({ history }) {
         }else {
             setShowMark(false)
         }
-        if(scrollTop >= 100) {
+        if(scrollTop >= 160) {
             setAbsorbTop(true)
             setTitle("每日推荐")
         }else {
@@ -43,7 +43,7 @@ function DailyAdvice({ history }) {
     },[])
     return (
         <div className="daily-advice-wrap">
-            <div className={absorbTop ? "daily-absorb-header daily-advice-header" : "daily-advice-header"} style={showMark ? {background: "linear-gradient(45deg,rgba(254,172,94,1),rgba(199,121,208,1),rgba(75,192,200,1))",height:"1.6rem"} : {}}>
+            <div className={absorbTop ? "daily-absorb-header daily-advice-header" : "daily-advice-header"} style={absorbTop ? {background: "linear-gradient(45deg,rgba(254,172,94,1),rgba(199,121,208,1),rgba(75,192,200,1))",height:"1.6rem"} : {}}>
                 <Header
                     onLeftClick = {() => goBack()}
                     style={{height:'.92rem',color:'#fff'}}
