@@ -5,6 +5,8 @@ import asyncComponent from '@/utils/asyncComponent';
 import menu from '@/images/tab_imgs/menu.png'
 import search from '@/images/tab_imgs/search.png'
 const Find = asyncComponent(() => import("@/components/Find"));
+const Personal = asyncComponent(() => import("@/components/Personal"));
+const Sidebar = asyncComponent(() => import("@/components/Sidebar"));
 const tabs = [
     { title: <Badge>我的</Badge> },
     { title: <Badge>发现</Badge> },
@@ -37,7 +39,7 @@ function Home({ history }) {
                         tabBarUnderlineStyle={{ border: 0 }}
                     >
                         <div>
-                            我的
+                            <Personal></Personal>
                         </div>
                         <div className="find-wrap">
                             <Find history={history} />
@@ -59,7 +61,7 @@ function Home({ history }) {
                 style={{ minHeight: document.documentElement.clientHeight,width:open ? '100%' : '0'}}
                 enableDragHandle
                 contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
-                sidebar={<div>这是侧边栏</div>}
+                sidebar={<Sidebar history={ history }></Sidebar>}
                 open={open}
                 onOpenChange={() => onOpenChange()}>
             &nbsp;

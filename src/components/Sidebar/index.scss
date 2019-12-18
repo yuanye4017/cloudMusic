@@ -1,0 +1,129 @@
+.sidebar-wrap {
+    padding: 0 .38rem;
+}
+.sidebar-header-portrait {
+    height: 1.24rem;
+    margin-top: .38rem;
+    .header-portrait {
+        width: 1.24rem;
+        height: 1.24rem;
+        position: relative;
+        background: rgba($color: #000000, $alpha: .5);
+        border-radius: 50%;
+        span {
+            position: absolute;
+            width: .62rem;
+            height: .62rem;
+            left: 50%;
+            top: 50%;
+            font-size: .22rem;
+            color: #ffffff;
+            text-align: center;
+            line-height: .28rem;
+            transform: translate(-50%,-50%);
+        }
+    }
+}
+.sidebar-header-name {
+    padding: .2rem 0;
+    .sidebar-header-left {
+        font-size: .26rem;
+        color: #000000;
+        line-height: .5rem;
+    }
+    .sidebar-header-right {
+        display: block;
+        width: 1.24rem;
+        height: .5rem;
+        font-size: .26rem;
+        color: #ffffff;
+        line-height: .5rem;
+        text-align: center;
+        background: red;
+        border-radius: .25rem;
+    }
+}
+.sidebar-adv {
+    display: flex;
+    justify-content: space-between;
+    height: 1.04rem;
+    width: 100%;
+    padding: .26rem .2rem;
+    color: #ffffff;
+    background: #1f1f1f;
+    border-radius: .1rem;
+    box-sizing: border-box;
+    .sidebar-adv-left {
+        width: 40%;
+        border-right: solid 1px #434343;
+        div:nth-of-type(1) {
+            font-size: .26rem;
+            font-weight: 900;
+            color: #e6d1d5;
+            margin-bottom: .12rem;
+        }
+        div:nth-of-type(2) {
+            font-size: .18rem;
+            color: #929292;
+        }
+    }
+    .sidebar-adv-right {
+        font-size: .2rem;
+        color: #ffffff;
+        line-height: .55rem;
+    }
+}
+.sidebar-list {
+    padding: .46rem 0;
+    .sidebar-list-navTag {
+        text-align: center;
+        .iconfont {
+            font-size: .5rem;
+            color: red;
+            line-height: .74rem;
+        }
+        .navTag-title {
+            font-size: .2rem;   
+        }
+        .am-flexbox-item {
+            width: .9rem;
+            height: 100%;
+        }
+    }
+}
+.sidebar-main-1 {
+    .header {
+        span {
+            line-height: .76rem;
+            font-size: .24rem;
+            color: #000000;
+        }
+        .sidebar-main-title {
+            margin-left: .24rem;  
+        }
+    }
+}
+.sidebar-main-2 {
+    span {
+        line-height: 1rem;
+        font-size: .24rem;
+        color: #000000;
+    }
+    .sidebar-main-title {
+        margin-left: .24rem;  
+    }
+}
+.sidebar-bottom {
+    height: .8rem;
+    .am-flexbox-item {
+        width: 33.33%;
+    }
+    span {
+        font-size: .26rem;
+        color: #000000;
+        line-height: .8rem;
+    }
+    .iconfont {
+        margin-right: .26rem;
+    }
+}
