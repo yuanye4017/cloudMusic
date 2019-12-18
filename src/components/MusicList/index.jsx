@@ -13,7 +13,7 @@ const detailHTML = (name,alias=[],artists=[],album) => {
             <p className="music-auth">
                 {
                     artists.map((value,index) => {
-                        if(index == 0) {
+                        if(index === 0) {
                             return (
                                 <span key={value.id}>{value.name}</span>
                             )
@@ -46,7 +46,7 @@ function MusicList({ list , absorbTop}) {
                             <Header
                                 key = {value.commentThreadId}
                                 style={{height:'.8rem',color:'#000'}}
-                                left = {[<img src={value.album.blurPicUrl} /> ]}
+                                left = {[<img src={value.album.blurPicUrl} alt="标题"/> ]}
                                 center = {[detailHTML(value.name,value.alias,value.artists,value.album.name)]}
                                 right = {[<i className="iconfont icon-bofang1 right-tip"></i>,<i className="iconfont icon-yuandiancaidan right-tip"></i>]}>
                             </Header>

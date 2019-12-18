@@ -40,14 +40,14 @@ function Captcha({ userPhone, captcha ,changeCaptcha,handelChangeToggle,getField
     },[disabledInput])
     
     useEffect(() => {
-        const time = setTimeout(() => {
+        let timer = setTimeout(() => {
             setTimer(timer => timer - 1);
             if(timer === 0) {
                 setTimer(0);
             }
         }, 1000);
         return () => {
-          clearTimeout(time); 
+          clearTimeout(timer); 
         };
     },[]);
 

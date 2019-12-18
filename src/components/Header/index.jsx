@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from "react"
+import React, { Fragment } from "react"
 import "./index.scss"
 function Header({ left = [], center = [], right = [], style , onLeftClick = function(){}}) {
   return (
